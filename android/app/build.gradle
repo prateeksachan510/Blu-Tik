@@ -1,0 +1,73 @@
+plugins {
+    id "com.android.application"
+    id 'com.google.gms.google-services'
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.blu_tik"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.example.blu_tik"
+        minSdk = 23
+        targetSdk = 33
+        versionCode 1
+        versionName "1.0.0"
+
+        // Enable Multidex
+        multiDexEnabled = true
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+            // Disable code shrinking for debugging (optional)
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:33.15.0')
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.android.gms:play-services-auth:20.7.0'
+    implementation 'androidx.multidex:multidex:2.0.1' // Add Multidex support
+}
+configurations.all {
+    resolutionStrategy {
+        // Force consistent versions of all Play Services and Firebase libraries
+        force 'com.google.android.gms:play-services-measurement:22.4.0'
+        force 'com.google.android.gms:play-services-measurement-api:22.4.0'
+        force 'com.google.android.gms:play-services-measurement-base:22.4.0'
+        force 'com.google.android.gms:play-services-measurement-impl:22.4.0'
+        force 'com.google.android.gms:play-services-measurement-sdk:22.4.0'
+        force 'com.google.android.gms:play-services-measurement-sdk-api:22.4.0'
+
+        // Also force consistent Firebase BoM version
+
+        // Force specific versions for conflicting libraries
+
+
+        // Prefer newer versions when there are conflicts
+        preferProjectModules()
+    }
+}

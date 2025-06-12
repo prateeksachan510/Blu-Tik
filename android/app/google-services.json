@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "165553219518",
+    "project_id": "blu-tik",
+    "storage_bucket": "blu-tik.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165553219518:android:023ad368a7d9d9f4d8fbef",
+        "android_client_info": {
+          "package_name": "com.example.blu_tik"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj7ocR0-UkKD2eOLOZ5cWmx8itIJcgXE8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
